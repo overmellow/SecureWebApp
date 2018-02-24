@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+    <head>
+        <title>Spring Security Example</title>
+    </head>
+    <body>
+        <h1>Resources!</h1>
+
+        <p th:text="'Hello, ' + ${username} + '!'" />
+        <table th:object="${users}" border="1">
+		    <tr th:each="user :${users}">
+		        <td  th:text="${user.getUsername()}"></td>
+		        <td  th:text="${user.getEmail()}"></td>
+		        <td  th:text="${user.getRoles()[0].getRole()}"></td>
+		    </tr>
+		</table>
+    </body>
+</html>
